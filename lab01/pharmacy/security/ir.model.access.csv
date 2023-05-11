@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pharmacy.access_pharmacy_doctors,access_pharmacy_doctors,pharmacy.model_pharmacy_doctors,base.group_user,1,1,1,1
+pharmacy.access_pharmacy_medicines,access_pharmacy_medicines,pharmacy.model_pharmacy_medicines,base.group_user,1,1,1,1
+pharmacy.access_pharmacy_sales,access_pharmacy_sales,pharmacy.model_pharmacy_sales,base.group_user,1,1,1,1
