@@ -1,0 +1,85 @@
+<odoo>
+<data>
+<record id="doctor_list_view" model="ir.ui.view">
+<field name="name">doctor.list</field>
+<field name="model">pharmacy.doctors</field>
+<field name="arch" type="xml">
+    <tree>
+    <field name="id"/>
+    <field name="name"/>
+    <field name="salary"/>
+    <field name="shift"/>
+    </tree>
+</field>
+</record>
+
+<record id="doctor_form_view" model="ir.ui.view">
+<field name="name">doctor.form</field>
+<field name="model">pharmacy.doctors</field>
+<field name="arch" type="xml">
+    <form>
+     <sheet>
+     <field name="image" widget="image" class="oe_avatar"/>
+  <group>
+    <group>
+      
+    <field name="id"/>
+    <field name="name"/>
+    <field name="salary"/>
+    <field name="shift"/>
+    </group>
+    <group>
+      <field name="start_date"/>
+    <!-- <field name="license_plate"/> -->
+    <field name="age"/>
+    </group>
+    <group>
+    <!-- <field name="sale_ids"/> -->
+    </group>
+  </group>
+  <group>
+    
+  </group>
+     <!--<field name="image"/>-->
+    <field name="note"/>
+ </sheet>
+
+    </form>
+</field>
+</record>
+
+<record id="doctor_search_view" model="ir.ui.view">
+<field name="name">doctor.list</field>
+<field name="model">pharmacy.doctors</field>
+<field name="arch" type="xml">
+    <search string="Doctors">
+    <field name="id"/>
+    <field name="name"/>
+    <field name="salary"/>
+    <field name="start_date"/>
+    <field name="shift"/>
+
+</search>
+
+</field>
+</record>
+
+<record id="pharmacy_doctor_action" model="ir.actions.act_window">
+    <field name="name">Doctor</field>
+    <field name="res_model">pharmacy.doctors</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="doctor_menu_root" name="Pharmacy Doctors">
+    <menuitem id="master_data_menu" name="Configurations">
+        <menuitem id="doctors_model_menu_action" action="pharmacy_doctor_action"/>
+    </menuitem>
+</menuitem>
+
+
+
+
+</data>
+
+
+</odoo>

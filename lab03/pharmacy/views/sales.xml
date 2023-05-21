@@ -1,0 +1,70 @@
+<odoo>
+<data>
+
+<record id="sales_tree_view" model="ir.ui.view">
+<field name="name">doctor.list</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <tree string="Sales">
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="doctor"/>
+    <field name="customer"/>
+    <field name="price"/>
+    <field name="date"/>
+</tree>
+
+</field>
+</record>
+
+
+<record id="sales_search_view" model="ir.ui.view">
+<field name="name">doctor.search</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <search string="Rentals">
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="customer"/>
+    <field name="doctor"/>
+</search>
+
+</field>
+</record>
+
+<record id="sales_form_view" model="ir.ui.view">
+<field name="name">doctor.list</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <form string="Sales">
+    <sheet>
+    <group>
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="doctor"/>
+    <field name="customer"/>
+    <field name="date"/>
+    <field name="price"/>
+    </group>
+
+    </sheet>
+    
+</form>
+
+</field>
+</record>
+
+<record id="pharmacy_sales_action" model="ir.actions.act_window">
+    <field name="name">Sales</field>
+    <field name="res_model">pharmacy.sales</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="master_data_menu" name="Configurations">
+    <menuitem id="sales_model_menu_action" action="pharmacy_sales_action"/>
+ </menuitem>
+
+
+</data>
+
+</odoo>
