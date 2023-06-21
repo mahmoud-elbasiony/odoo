@@ -1,0 +1,103 @@
+<odoo>
+<data>
+
+<record id="sales_tree_view" model="ir.ui.view">
+<field name="name">doctor.list</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <tree string="Sales">
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="doctor"/>
+    <field name="customer"/>
+    <field name="date"/>
+    <field name="price"/>
+    <field name="amount"/>
+    <field name="total"/>
+
+</tree>
+
+</field>
+</record>
+
+
+<record id="sales_search_view" model="ir.ui.view">
+<field name="name">sales.search</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <search string="Sales">
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="customer"/>
+    <field name="doctor"/>
+
+</search>
+
+</field>
+</record>
+
+
+
+<record id="pharmacy_sales_view_pivot" model="ir.ui.view">
+    <field name="name">pharmacy.sales.view.pivot</field>
+    <field name="model">pharmacy.sales</field>
+    <field name="arch" type="xml">
+        <pivot >
+            <field name="medicine" type="row"></field>
+            <field name="total" type="col"></field>
+
+        </pivot>
+    </field>
+</record>
+
+<record id="pharmacy_sales_view_graph" model="ir.ui.view">
+    <field name="name">pharmacy.sales.view.pivot</field>
+    <field name="model">pharmacy.sales</field>
+    <field name="arch" type="xml">
+        <pivot >
+            <field name="total" type="measure"></field>
+            <field name="medicine" type="bar"></field>
+        </pivot>
+    </field>
+</record>
+
+
+
+
+<record id="sales_form_view" model="ir.ui.view">
+<field name="name">sales.list</field>
+<field name="model">pharmacy.sales</field>
+<field name="arch" type="xml">
+    <form string="Sales">
+    <sheet>
+    <group>
+    <field name="number"/>
+    <field name="medicine"/>
+    <field name="doctor"/>
+    <field name="customer"/>
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="total" sum="total"/>
+
+    </group>
+    </sheet>
+    
+</form>
+
+</field>
+</record>
+
+<record id="pharmacy_sales_action" model="ir.actions.act_window">
+    <field name="name">Sales</field>
+    <field name="res_model">pharmacy.sales</field>
+    <field name="view_mode">tree,form,pivot,graph</field>
+</record>
+
+<menuitem id="master_data_menu" name="Configurations">
+    <menuitem id="sales_model_menu_action" action="pharmacy_sales_action"/>
+ </menuitem>
+
+
+</data>
+
+</odoo>

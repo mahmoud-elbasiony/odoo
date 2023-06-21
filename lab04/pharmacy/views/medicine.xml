@@ -1,0 +1,103 @@
+<odoo>
+<data>
+
+<record id="medicine_tree_view" model="ir.ui.view">
+<field name="name">medicine.list</field>
+<field name="model">pharmacy.medicines</field>
+<field name="arch" type="xml">
+    <tree string="Medicines">
+    <field name="name"/>
+    <field name="photo"/>
+    <field name="type"/>
+    <field name="price"/>
+    <field name="expiration_date"/>
+    <field name="stock"/>
+
+</tree>
+
+</field>
+</record>
+
+
+<record id="medicine_search_view" model="ir.ui.view">
+<field name="name">medicine.search</field>
+<field name="model">pharmacy.medicines</field>
+<field name="arch" type="xml">
+    <search string="Medicines">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="expiration_date"/>
+</search>
+
+</field>
+</record>
+
+<record id="medicine_form_view" model="ir.ui.view">
+<field name="name">medicine.list</field>
+<field name="model">pharmacy.medicines</field>
+<field name="arch" type="xml">
+    <form string="Medicines">
+    <sheet>
+    <group>
+    <field name="name"/>
+    <field name="type"/>
+    <field name="price"/>
+    <field name="expiration_date"/>
+    <field name="stock"/>
+    <field name="photo"/>
+
+    </group>
+
+    </sheet>
+    
+</form>
+
+</field>
+</record>
+
+<record id="medicine_kanban_view" model="ir.ui.view">
+<field name="name">medicine.list</field>
+<field name="model">pharmacy.medicines</field>
+<field name="arch" type="xml">
+
+<kanban >
+    <field name="photo"/>
+    <field name="name"/>
+    <field name="type"/>
+    <field name="expiration_date"/>
+    <field name="price"/>
+    <templates>
+    <t t-name="kanban-box">
+
+        <div class="oe_module_vignette">
+        <div class="oe_module_desc" >
+            <h4 class="o_kanban_record_title d-flex flex-wrap justify-content-between">
+                <field name="name"/>
+                <field name="price"/>
+            </h4>
+            <p class="oe_module_name d-flex flex-wrap justify-content-between">
+                <field name="type"/>
+                <field name="expiration_date"/>
+            </p>
+        </div>
+        </div>
+    </t>
+    </templates>
+</kanban>
+</field>
+</record>
+
+
+<record id="pharmacy_medicines_action" model="ir.actions.act_window">
+    <field name="name">Medicines</field>
+    <field name="res_model">pharmacy.medicines</field>
+    <field name="view_mode">tree,form,kanban</field>
+</record>
+<menuitem id="master_data_menu" name="Configurations">
+    <menuitem id="medicines_model_menu_action" action="pharmacy_medicines_action"/>
+ </menuitem>
+
+
+</data>
+
+</odoo>
